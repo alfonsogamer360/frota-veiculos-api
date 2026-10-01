@@ -1,14 +1,15 @@
-import { Router } from "express";
-import { veiculoService } from "../services/veiculoservice";
+import { Router } from 'express';
+import { veiculoServices } from '../services/veiculoService.js';
 
-export const veiculorouter = new Router();
+export const veiculoRouter = new Router();
 
-veiculorouter.get("/veiculos", async (_req, res) => {
-    const veiculos = await veiculoService.getAll();
+veiculoRouter.get("/", async (_req, res) => {
+    const veiculos = await veiculoServices.getAll();
     return res.json(veiculos);
 });
 
-veiculorouter.post("/veiculos", async (req,res) => {
-    const veiculos = await veiculoService.create(req.body);
+veiculoRouter.post("/", async (req, res) => {
+    const { modelo, marca, ano, placa } = req.body;
+    const veiculos = await veiculoServices.create(modelo, marca, ano, placa);
     return res.status(201).json(veiculos);
 });
