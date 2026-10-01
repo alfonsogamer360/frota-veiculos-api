@@ -5,7 +5,7 @@ export const router = new Router();
 
 router.get("/veiculos", async (_req, res) => {
     const veiculos = await veiculoService.getAll();
-    return res.json(veiculos)
+    return res.json(veiculos);
 });
 
 router.post("/veiculos", async (req,res) => {

@@ -11,4 +11,4 @@ class veiculoService {
     }
 }
 
-export const veiculoService = new veiculoService()
+export const veiculoService = new veiculoService();
